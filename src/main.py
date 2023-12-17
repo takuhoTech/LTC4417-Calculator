@@ -15,12 +15,15 @@ def btn_click():
    R23 = float(txt[5].get())*1000
    Rhys = float(txt[6].get())*1000
 
-   Ihys = 63.0/(1000.0*Rhys)
-
    R123 = R1 + R2 + R3
    R4 = R1 + R2
-   OVhys = Ihys*((R12*R123/R1)+R2+R3)
-   UVhys = Ihys*((R23*R123/R4)+R3)
+   if Rhys != 0:
+      Ihys = 63.0/(1000.0*Rhys)
+      OVhys = Ihys*((R12*R123/R1)+R2+R3)
+      UVhys = Ihys*((R23*R123/R4)+R3)
+   else:
+      OVhys = 0.03
+      UVhys = 0.03
 
    OV = (R3+R4)/R1
    UV = (R3+R4)/R4
