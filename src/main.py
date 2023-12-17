@@ -19,6 +19,9 @@ def btn_click():
    R4 = R1 + R2
    if Rhys != 0:
       Ihys = 63.0/(1000.0*Rhys)
+      txt[11].delete(0, tkinter.END)
+      if (Ihys < 0.000000050) or (Ihys > 0.000000500):
+         txt[11].insert(0,"Ihys range error")
       OVhys = Ihys*((R12*R123/R1)+R2+R3)
       UVhys = Ihys*((R23*R123/R4)+R3)
    else:
@@ -60,13 +63,15 @@ tkinter.Label(text='UVヒステリシス').place(x=30, y=310)
 tkinter.Label(text='OV').place(x=30, y=340)
 tkinter.Label(text='OVヒステリシス').place(x=30, y=370)
 
+tkinter.Label(text='Error').place(x=30, y=400)
+
 i = 0
 while i <= 3:
    tkinter.Label(text='V').place(x=250, y=280+30*i)
    i = i + 1
 
 # テキストボックス
-txt = [0]*11
+txt = [0]*12
 
 txt[1] = tkinter.Entry(width=20)
 txt[1].place(x=120, y=70)
@@ -89,6 +94,9 @@ txt[9] = tkinter.Entry(width=20)
 txt[9].place(x=120, y=340)
 txt[10] = tkinter.Entry(width=20)
 txt[10].place(x=120, y=370)
+
+txt[11] = tkinter.Entry(width=60)
+txt[11].place(x=120, y=400)
 
 # ボタン
 btn = tkinter.Button(tki, text='計算', command=btn_click)
