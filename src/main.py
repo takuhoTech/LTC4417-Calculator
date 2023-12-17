@@ -28,6 +28,11 @@ def btn_click():
    OV = (R3+R4)/R1
    UV = (R3+R4)/R4
 
+   txt[7].delete(0, tkinter.END)
+   txt[8].delete(0, tkinter.END)
+   txt[9].delete(0, tkinter.END)
+   txt[10].delete(0, tkinter.END)
+
    txt[7].insert(0,UV)
    txt[8].insert(0,str(UVhys))
    txt[9].insert(0,OV)
